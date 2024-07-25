@@ -1,13 +1,13 @@
 import '@radix-ui/themes/styles.css'
 import './App.css'
 
-import { Theme, ThemePanel, Text } from '@radix-ui/themes'
+import { Theme } from '@radix-ui/themes'
+import Tiptap from './tiptap'
 
 export default function App() {
   return (
     <Theme>
-      <Text>Hello, World!</Text>
-      <ThemePanel />
+      <Tiptap />
     </Theme>
   )
 }
