@@ -1,8 +1,9 @@
 import React from 'react'
 import { useEditor, EditorContent, FloatingMenu } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import { Exercise } from './extensions'
 
-const extensions = [StarterKit]
+const extensions = [StarterKit, Exercise]
 const content = '<p>Hello World!</p>'
 
 export default function Tiptap() {
