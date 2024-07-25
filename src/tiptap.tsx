@@ -6,10 +6,10 @@ import {
   useCurrentEditor,
 } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import { Exercise } from './extensions'
+import { Exercise, Solution, Task } from './extensions'
 import { Button, Flex } from '@radix-ui/themes'
 
-const extensions = [StarterKit, Exercise]
+const extensions = [StarterKit, Task, Solution, Exercise]
 const content = '<p>Hello World!</p>'
 
 export default function Tiptap() {
@@ -45,7 +45,23 @@ function Toolbar() {
       .focus()
       .insertContentAt(endOfBlock, {
         type: 'exercise',
-        content: [{ type: 'text', text: 'Exercise' }],
+        content: [
+          {
+            type: 'task',
+            content: [
+              { type: 'paragraph', content: [{ type: 'text', text: 'Task' }] },
+            ],
+          },
+          {
+            type: 'solution',
+            content: [
+              {
+                type: 'paragraph',
+                content: [{ type: 'text', text: 'Solution' }],
+              },
+            ],
+          },
+        ],
       })
       .run()
   }

@@ -11,47 +11,68 @@ declare module '@tiptap/core' {
 export const Exercise = Node.create({
   name: 'exercise',
 
-  content: 'inline*',
+  content: 'task solution',
 
   group: 'block',
 
   defining: true,
 
-  addAttributes() {
-    return {
-      level: {
-        default: 1,
-        rendered: false,
-      },
-    }
-  },
-
   parseHTML() {
     return [
       {
-        tag: `h1`,
-        attrs: {},
+        tag: `div`,
+        attrs: { 'data-type': this.name },
       },
     ]
   },
 
   renderHTML() {
-    return [`h1`, { 'data-type': this.name }, 0]
+    return [`div`, { 'data-type': this.name }, 0]
+  },
+})
+
+export const Task = Node.create({
+  name: 'task',
+
+  content: 'paragraph+',
+
+  group: 'block',
+
+  defining: true,
+
+  parseHTML() {
+    return [
+      {
+        tag: `div`,
+        attrs: { 'data-type': this.name },
+      },
+    ]
   },
 
-  addCommands() {
-    return {
-      toggleExercise:
-        () =>
-        ({ commands }) => {
-          return commands.toggleNode(this.name, 'paragraph')
-        },
-    }
+  renderHTML() {
+    return [`div`, { 'data-type': this.name }, 0]
+  },
+})
+
+export const Solution = Node.create({
+  name: 'solution',
+
+  content: 'paragraph+',
+
+  group: 'block',
+
+  defining: true,
+
+  parseHTML() {
+    return [
+      {
+        tag: `div`,
+        attrs: { 'data-type': this.name },
+      },
+    ]
   },
 
-  addKeyboardShortcuts() {
-    return {
-      'Ctrl-1': () => this.editor.commands.toggleExercise(),
-    }
+  renderHTML() {
+    return [`div`, { 'data-type': this.name }, 0]
   },
 })
