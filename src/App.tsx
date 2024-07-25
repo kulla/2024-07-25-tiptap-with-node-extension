@@ -7,7 +7,9 @@ import Tiptap from './tiptap'
 export default function App() {
   return (
     <Theme>
-      <Tiptap />
+      <div style={{ padding: 16 }}>
+        <Tiptap />
+      </div>
     </Theme>
   )
 }
