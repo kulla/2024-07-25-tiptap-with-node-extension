@@ -1,5 +1,13 @@
+import '@radix-ui/themes/styles.css'
 import './App.css'
 
+import { Theme, ThemePanel, Text } from '@radix-ui/themes'
+
 export default function App() {
-  return <h1>Hello, World!</h1>
+  return (
+    <Theme>
+      <Text>Hello, World!</Text>
+      <ThemePanel />
+    </Theme>
+  )
 }
