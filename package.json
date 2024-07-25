@@ -19,6 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "format": "prettier --write .",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -40,5 +41,8 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@4.3.1"
+  "packageManager": "yarn@4.3.1",
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
 }
