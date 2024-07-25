@@ -23,6 +23,7 @@ export default function Tiptap() {
       extensions={extensions}
       content={content}
       slotBefore={<Toolbar />}
+      slotAfter={<EditorJSONPreview />}
     >
       <FloatingMenu editor={editor}>This is the floating menu</FloatingMenu>
     </EditorProvider>
@@ -70,5 +71,16 @@ function Toolbar() {
     <Flex gap="3">
       <Button onClick={insertExercise}>Add Exercise</Button>
     </Flex>
+  )
+}
+
+function EditorJSONPreview() {
+  const { editor } = useCurrentEditor()
+
+  return (
+    <>
+      <h1>JSON State</h1>
+      <pre>{JSON.stringify(editor?.getJSON(), null, 2)}</pre>
+    </>
   )
 }
